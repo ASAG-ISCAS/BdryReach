@@ -296,4 +296,4 @@ make
 ```
 # Acknowledgement
 
-This project was completed by Ren Dejin, Zhao Changyuan, and Xue Bai from the Institute of Software, Chinese Academy of Sciences (ISCAS).
+This project was completed by Dejin Ren, Changyuan Zhao, and Bai Xue from the Institute of Software, Chinese Academy of Sciences (ISCAS).
