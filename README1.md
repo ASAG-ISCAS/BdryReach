@@ -33,6 +33,12 @@ with CPU 12th Gen Intel Core i9-12900K × 8  and RAM 15.6 GB.
 **We provided all the experiments in our paper for the artifact evaluation. The examples files are located in ./examples, which contains all the examples showcased in Table 3-5. It has tow folders, ./examples/BdryReach and ./examples/CORA, which include examples run by BdryReach and CORA respectively.
 Here are the computation times of each file, which are tested in the environment stated in 1.1.**
 
+<body lang=ZH-CN style='tab-interval:21.0pt;word-wrap:break-word'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<div align=center>
+
 <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
  style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
  mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
