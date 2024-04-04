@@ -1012,137 +1012,24 @@ Here are the computation times of each file, which are tested in the environment
 
 </div>
 
-## 2. Structure and Content
+## 2 Getting Started
 
-### 2.1 Outer-approximation and Inner-approximation of Reachable Set Computation Interface
-
-### 2.1.1  Outer-approximation of Reachable Set Computation Interface 
-```cpp
-template <typename Number>
-static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOptions<Number> options, Zonotope<Number> R0)
-```
-**Parameters:**
-* **mysys:** differential equation for computing reachable sets.
-* **options:** configuration for outer-approximation of reachable set computation.
-* **R0:** initial set.
+### 2.1 Tool Installation
 
 
-
-### 2.2 Test Case for Outer-approximation of Reachable Set Computation
-**As an example, we perform the outer-approximation of the reachable set computation for the VanderPol model. The file computes the outer-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval 0 - 6.74 seconds.The specific file location is:**
-```RobotFramework
-/examples/overVanderPol.cpp.
-```
-### 2.2.1 Include Files
-```cpp
-#include <overApprox/overApprox.h> // Header File with Interfaces for Computing Reachable Set Outer-approximation.
-#include <plotter/matplotlibcpp.h> // Header file for Matplotlib C++ plotting library
-#include <plotter/plotter.h> // Header file for result plotting
-```
-### 2.2.2 Definition of Differential Equations
-**We define the form of differential equations using the Capd library. For detailed information on the differential equation system in Capd, please refer to the [Capd documentation](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html) on ordinary differential equation systems.**
-
-
-```cpp
-double mu = 1.;
-
-void _f(Node/* t*/, Node in[], int /*dimIn*/, Node out[], int/* dimOut*/, Node params[], int noParams){
-    out[0] = in[1];
-    out[1] = mu * (1-in[0]*in[0])*in[1] - in[0]/*+ in[2]*/;
-}
-
-// Input dimension of the differential equation
-int dimIn = 3; // The input dimension of the differential equation. Since the default input includes control u, the input dimension is one greater than the output dimension.
-
-// Output dimension of the differential equation
-int dimOut = 2; // The output dimension of the differential equation.
-
-// Parameter settings for the differential equation. Since this differential equation has no parameters, it is set to 0.
-int noParam = 0;
-
-// Maximum order for Taylor expansion of the differential equation
-int MaxDerivativeOrder = 3; // The maximum order to which the differential equation is expanded using Taylor series.
-
-// Creating IMap for interval computations
-IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for interval Computations
-
-
-```
-### 2.2.3 Parameter Configuration for Computing Reachable Sets
-**Here, we adopt the same parameter definitions as the MATLAB Reachable Set Computation Toolbox CORA. The specific meanings of each parameter can be found in CORA's documentation. please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
-```cpp
-    NonlinearSys<double> mysys(f, 2, 0, 2);
-    ReachOptions<double> options;
-
-    //create R0
-    Vector_t<double> center(2);
-    Vector_t<double> c(2);
-    c << 1.4, 2.4;
-    Matrix_t<double> generators(2,1);
-    Matrix_t<double> G(2,2);
-    G<< 0.17,0,
-                 0,0.06;
-    Zonotope<double> R0_(c,G);
-
-    center << 1.4, 2.46;
-    generators<< 0.17,
-                 0;
-
-    options.set_R0(R0_);
-
-    options.set_time_step(0.005);
-    options.set_taylor_terms(4);
-    options.set_zonotope_order(50);
-    options.set_intermediate_order(50);
-    options.set_error_order(20);
-    options.set_alg("lin");
-    options.set_tensor_order(3);
-
-    options.set_tFinal(6.74);
-    options.set_tStart(0);
-
-    options.set_usekrylovError(1);
-    options.set_max_error(DBL_MAX*Eigen::MatrixXd::Ones(2,1));
-```
-### 2.2.4 Invoking the Boundary-based Method for Computing Outer-approximations of Reachable Sets
-This step invokes our boundary-based method for computing outer-approximations of reachable sets. Please refer to **Section 2.1.1** for the meanings of various parameters.
-```cpp
-vector<ReachableSet<double>> BdReachset = OverApprox::BdReach(mysys, options, R0_);
-```
-### 2.2.5 The Plotting of Results
-For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
-```cpp
-plt::figure_size(1200, 780);
-for(int i = 0; i < BdReachset.size(); i++){
-    Plotter::plotReach(BdReachset[i], 1, 2, "b");
-}
-plt::show();
-```
-### 2.2.6 Results Display
-**We employ both the BdryReach and CORA methods to compute the outer-approximation of the reachable set starting from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval 0 to 6.74 seconds. The blue region represents the results obtained by the BdryReach method, while the red region corresponds to the results from CORA Computations. It is evident that the outer-approximation computed by BdryReach exhibits significantly higher accuracy compared to CORA.**
-<p align="center">
-  <img src=result_picture/2.2.6.png>
-</p>
-
-
-## 3 Getting Started
-
-### 3.1 Tool Installation
-
-
-#### 3.1.1 Eigen3
+#### 2.1.1 Eigen3
 
 ```bash
 sudo apt-get install libeigen3-dev
 ```
 
-#### 3.1.2 Python
+#### 2.1.2 Python
 
 ```bash
 sudo apt-get install python-dev
 ```
 
-#### 3.1.3 Capd
+#### 2.1.3 Capd
 
 ```bash
 sudo apt install libtool
@@ -1155,7 +1042,7 @@ sudo make install
 ```
 
 
-### 3.1.4 BdryReach Toolkit Installation and Compilation of Test Cases
+### 2.1.4 BdryReach Toolkit Installation and Compilation of Test Cases
 
 ```bash
 cd BdryReach/
@@ -1165,13 +1052,13 @@ cmake ..
 make
 ```
 
-## 3.2 Load docker
+## 2.2 Load docker
 
-## 3.3 Simple user Guide 
+# 3 Simple user Guide 
 
 **In this subsection we will show how to compute an inner-approximation using our tool BdryReach. The main source code is located in ./BdryReach_code/include/underApprox/underApprox.h.**
 
-### 3.3.1 Include Files
+## 3.1 Include Files
 
 ```cpp
 #include <plotter/matplotlibcpp.h>   // Header for computing reachable set outer-approximation
@@ -1179,7 +1066,7 @@ make
 #include <underApprox/underApprox.h>  // Header for includes the interface for computing reachable sets under approximation.
 ```
 
-### 3.3.2 Definition of Differential Equations
+## 3.2 Definition of Differential Equations
 
 **We use the Capd library to define the form of the differential equations. Refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html). Notably, the computation of our method requires validation of the obtained reachable set inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
 
@@ -1206,7 +1093,7 @@ IMap f(_f, dimIn,dimOut,noParam,MaxDerivativeOrder);
 IMap fBack(_fBack, dimIn,dimOut,noParam,MaxDerivativeOrder);
 ```
 
-### 3.3.3 Parameter Configuration for Computing Reachable Sets
+## 3.3 Parameter Configuration for Computing Reachable Sets
 
 **We adopt parameter definitions similar to the MATLAB Reachability Analysis Toolbox CORA. For detailed meanings, refer to CORA's documentation.**
 ```cpp
@@ -1242,7 +1129,7 @@ options.set_usekrylovError(1);
 options.set_max_error(DBL_MAX*Eigen::MatrixXd::Ones(2,1));
 ```
 
-### 3.3.4 Invoking the Boundary-based Method for Computing the Inner-approximations of Reachable Sets
+## 3.4 Invoking the Boundary-based Method for Computing the Inner-approximations of Reachable Sets
 
 **This step invokes our boundary-based method for computing inner-approximations of reachable sets. Please refer to the interface for the meanings of various parameters.**
 ```cpp
@@ -1267,7 +1154,7 @@ template <typename Number>
 * **bound_step:** step size for outer-approximation computation for the boundary of the set at each step in inner-approximation computation.
 * **Zover_order:** limit on the zonotope order for outer-approximation computation for the entire set at each step in inner-approximation computation.
   
-### 3.3.5 The Plotting of Results
+## 3.5 The Plotting of Results
 
 For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
@@ -1279,7 +1166,7 @@ Plotter::plotZonotope(R0_, 1, 2, "k");
 plt::show();
 ```
 
-### 3.3.6 compile and run 
+## 3.6 compile and run 
 
 * **./BdryReach_code/CMakeLists.txt** 
 ```cpp
@@ -1336,7 +1223,7 @@ cmake ..
 make
 ```
 
-### 3.3.7 Results Display and comments
+## 3.7 Results Display and comments
 
 **zonotopic inner-approximation: the computed inner-approximation**
 ```markdown
