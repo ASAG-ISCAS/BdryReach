@@ -1,23 +1,15 @@
 <div align="center">
   	<h1>
-    	BdryReach User Guide
+    	Artifact Evaluation
   	</h1>
-	<br />
-    <div>
-		<a href="https://github.com/BdryReach/BdryReach">
-			<img width="428" src="result_picture/BdryReach.svg" alt="BdryReach System">
-		</a>
-	</div>
 </div>
 
-## 1. Artifact Requirements
+#  Artifact Requirements
 
-To run BdrtReach in a Linux system, it is necessary to install the **cmake** tool and the various **third-party libraries** required for BdryReach.
+##  Resource requirements
 
-### 1.1 Resource requirements
-
-Our implementation utilizes the floating point linear programming solver GLPK and C++ library Eigen. We adopt the approach outlined in  \cite{althoff2008reachability} to compute outer-approximations appeared in our method. All  experiments herein are run on Ubuntu 20.04.3 LTS in virtual machine 
-with CPU 12th Gen Intel Core i9-12900K × 8  and RAM 15.6 GB. 
+ All  experiments herein are run on Ubuntu 20.04.3 LTS in virtual machine 
+with CPU 12th Gen Intel Core i9-12900K × 8  and RAM 15.6 GB. The compared tool CORA is run in Matlab R2020a. Here are the **third-party libraries** required for BdryReach.
 | Library | Website | Version |
 | --- | --- | --- |
 | git | [https://git-scm.com/](https://git-scm.com/) | 2.25.1 |
@@ -28,1079 +20,182 @@ with CPU 12th Gen Intel Core i9-12900K × 8  and RAM 15.6 GB.
 | boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
 | GLPK | [https://www.gnu.org/software/glpk/](https://www.gnu.org/software/glpk/) | 4.65-2 |
 
-### 1.2 Evaluation runtime
+##  Evaluation runtime
 
-**We provided all the experiments in our paper for the artifact evaluation. The examples files are located in ./examples, which contains all the examples showcased in Table 3-5. It has tow folders, ./examples/BdryReach and ./examples/CORA, which include examples run by BdryReach and CORA respectively.
-Here are the computation times of each file, which are tested in the environment stated in 1.1.**
+We provided 8 automation scripts to run all the examples in our paper for the artifact evaluation. The examples files are located in **./examples**, which contains all the examples showcased in Table 3-5. It has tow folders, **./examples/BdryReach** and **./examples/CORA**, which include examples run by BdryReach (our tool) and CORA (compared tool) respectively.
 
-<body lang=ZH-CN style='tab-interval:21.0pt;word-wrap:break-word'>
+In the directory **./examples/BdryReach**, it has 4 automation scripts corresponding to examples in Table 3, Table 4, examples with short time horizon in Table 5 and examples with long time horizon in Table 5.
+Here are the runtime of these 4 scripts, which are tested in the environment stated in 1.1.
+| Automation scripts | Runtime (seconds) |
+| --- | --- |
+| runTable3_Examples.sh | 425 | 
+| runTable4_Examples.sh | 1453 | 
+|runTable5_Examples_shortTime.sh | 527 | 
+| runTable5_Examples_longtTime.sh  | 840 | 
 
-<div class=WordSection1 style='layout-grid:15.6pt'>
+In the directory **./examples/CORA**, it has 4 automation scripts corresponding to examples in Table 3, Table 4, examples with short time horizon in Table 5 and examples with long time horizon in Table 5. 
+Here are the runtime of these 4 scripts, which are tested in the environment stated in 1.1.
 
-<div align=center>
+| Automation scripts | Runtime (seconds) |
+| --- | --- |
+| runTable3_Examples.m | 2800 | 
+| runTable4_Examples.m | 409 | 
+|runTable5_Examples_shortTime.m | 4484 | 
+| runTable5_Examples_longtTime.m  | 390 | 
+# Structure and Content
 
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
- style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
- mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.45pt'>
-  <td width=282 colspan=2 style='width:211.25pt;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table3_examples<o:p></o:p></span></b></p>
-  </td>
-  <td width=286 colspan=2 style='width:214.15pt;border:solid windowtext 1.0pt;
-  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
-  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table4_examples<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
-  lang=EN-US>Flie</span></b></span><b><span lang=EN-US><o:p></o:p></span></b></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>File<o:p></o:p></span></b></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:2;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>ElectroOsc_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>23.56</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>ElectroOsc_T4</span></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>73.76</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:3;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>Roessler_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>27.72</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Roessler_T4</span></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>63.42</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:4;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>LotkaVolterra_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>10.43</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>LotkaVolterra_T4</span></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>81.81</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:5;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>Tank6_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>50.83</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank6_T4</span></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>129.58</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:6;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>BiologicalSysteml_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>1.74</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSysteml_T4</span></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>462.87</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:7;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>BiologicalSystemll_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>72.47</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSystemll_T4</span></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>261.78</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>Tank12_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>235.88</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank12_T4</span></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>377.85</span></p>
-  </td>
- </tr>
-</table>
+- [Artifact Requirements](#artifact-requirements)
+  - [Resource requirements](#resource-requirements)
+  - [Evaluation runtime](#evaluation-runtime)
+- [Structure and Content](#structure-and-content)
+- [Getting Started](#getting-started)
+  - [Load OVA](#load-ova)
+  - [Replicating Experiments](#replicating-experiments)
+    - [Examples Run by BdryReach](#examples-run-by-bdryreach)
+    - [Examples Run by CORA](#examples-run-by-cora)
+- [Functional badge](#functional-badge)
+- [Reusable badge](#reusable-badge)
+  - [License](#license)
+  - [Tool Installation in a New Computer](#tool-installation-in-a-new-computer)
+    - [Eigen3](#eigen3)
+    - [Python](#python)
+    - [boost](#boost)
+    - [glpk](#glpk)
+    - [Capd](#capd)
+    - [BdryReach Toolkit Installation and Compilation of Test Cases](#bdryreach-toolkit-installation-and-compilation-of-test-cases)
+  - [Simple user Guide](#simple-user-guide)
+    - [Include Files](#include-files)
+    - [Definition of Differential Equations](#definition-of-differential-equations)
+    - [Parameter Configuration for Computing Reachable Sets](#parameter-configuration-for-computing-reachable-sets)
+    - [Invoking the Boundary-based Method for Computing the Inner-approximations of Reachable Sets](#invoking-the-boundary-based-method-for-computing-the-inner-approximations-of-reachable-sets)
+      - [Inner-approximation of Reachable Set Computation Interface](#inner-approximation-of-reachable-set-computation-interface)
+    - [The Plotting of Results](#the-plotting-of-results)
+    - [Compile and Run](#compile-and-run)
+    - [Results Display](#results-display)
+  
+#  Getting Started
 
-</div>
+**We provide the Open Virtual Appliance (OVA) image which can quickly use our tool without any additional installation and configuration.**
+##  Load OVA
+Open the ova file **Ubuntu_aeOS.ova** in VMware Workstation (or other virtual machines). The codes and executable files are located in the director **./home**. The source code of BdryReach is located in **./BdryReach_code** and the source code of CORA is located in **./CORA_code**. (Herein we see **./home** as the root directory.)
+##  Replicating Experiments 
+**The examples files are located in ./examples, which contains all the examples showcased in Table 3-5. It has tow folders, ./examples/BdryReach and ./examples/CORA, which include examples run by BdryReach (our tool) and CORA (compared tool) respectively.**
 
-<p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
-
-<div align=center>
-
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=652
- style='width:489.05pt;border-collapse:collapse;border:none;mso-border-alt:
- solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.45pt'>
-  <td width=319 colspan=2 style='width:239.4pt;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table5_examples_longTime<o:p></o:p></span></b></p>
-  </td>
-  <td width=333 colspan=2 style='width:249.65pt;border:solid windowtext 1.0pt;
-  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
-  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table4_examples<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
-  lang=EN-US>Flie</span></b></span><b><span lang=EN-US><o:p></o:p></span></b></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>File<o:p></o:p></span></b></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:2;height:14.45pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>ElectroOsc_biginit_T5l</span></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>11.29</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>ElectroOsc_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>4.79</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:3;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>Roessler_biginit_T5l</span></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>24.01</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Roessler_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>15.88</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:4;height:14.45pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>LotkaVolterra_biginit_T5l</span></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>64.17</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>LotkaVolterra_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>15.45</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:5;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>Tank6_biginit_T5l</span></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>80.91</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank6_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>66.83</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:6;height:16.3pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:16.3pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:
-  white'>BiologicalSysteml_biginit</span></span><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>
-  _T5l</span></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.3pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>281.05</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.3pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSystems_biginit</span></span><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'> _T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.3pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>118.65</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:7;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:
-  white'>BiologicalSystemll_biginit</span></span><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>
-  _T5l</span></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>142.02</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSystemsl_biginit</span></span><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'> _T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>142.17</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes;height:20.55pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:20.55pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>Tank12_big_init_T5l</span></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:20.55pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>235.57</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:20.55pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank12_big_init_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:20.55pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>162.46</span></p>
-  </td>
- </tr>
-</table>
-
-</div>
-
-<p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
-
-<div align=center>
-
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
- style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
- mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.45pt'>
-  <td width=282 colspan=2 style='width:211.25pt;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table3_examples<o:p></o:p></span></b></p>
-  </td>
-  <td width=286 colspan=2 style='width:214.15pt;border:solid windowtext 1.0pt;
-  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
-  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table4_examples<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
-  lang=EN-US>Flie</span></b></span><b><span lang=EN-US><o:p></o:p></span></b></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>File<o:p></o:p></span></b></p>
-  </td>
-  <td width=140 style='width:104.95pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:2;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>ElectroOsc_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>36.50</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>ElectroOsc_T4</span></p>
-  </td>
-  <td width=140 rowspan=7 style='width:104.95pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>a
-  few seconds</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:3;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>Roessler_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>36.63</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Roessler_T4</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:4;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>LotkaVolterra_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>335.06</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>LotkaVolterra_T4</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:5;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>Tank6_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>201.05</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank6_T4</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:6;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>BiologicalSysteml_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>125.73</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSysteml_T4</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:7;height:13.85pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>BiologicalSystemll_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>188.25</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSystemll_T4</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes;height:14.45pt'>
-  <td width=142 style='width:106.35pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>Tank12_T3</span></p>
-  </td>
-  <td width=140 style='width:104.9pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>1834.65</span></p>
-  </td>
-  <td width=146 style='width:109.2pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank12_T4</span></p>
-  </td>
- </tr>
-</table>
-
-</div>
-
-<p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
-
-<div align=center>
-
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=652
- style='width:489.05pt;border-collapse:collapse;border:none;mso-border-alt:
- solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.45pt'>
-  <td width=319 colspan=2 style='width:239.4pt;border:solid windowtext 1.0pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table5_examples_longTime<o:p></o:p></span></b></p>
-  </td>
-  <td width=333 colspan=2 style='width:249.65pt;border:solid windowtext 1.0pt;
-  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
-  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=GramE><b><span
-  lang=EN-US>..</span></b></span><b><span lang=EN-US>/Table4_examples<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><b><span
-  lang=EN-US>Flie</span></b></span><b><span lang=EN-US><o:p></o:p></span></b></p>
-  </td>
-  <td width=111 style='width:83.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>File<o:p></o:p></span></b></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><b><span
-  lang=EN-US>Runtime<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:2;height:14.45pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>ElectroOsc_biginit_T5l</span></p>
-  </td>
-  <td width=111 rowspan=7 style='width:83.55pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>a
-  few seconds</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>ElectroOsc_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>24.32</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:3;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>Roessler_biginit_T5l</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Roessler_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>36.54</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:4;height:14.45pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>LotkaVolterra_biginit_T5l</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>LotkaVolterra_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.45pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>153.57</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:5;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>Tank6_biginit_T5l</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank6_biginit_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>463.28</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:6;height:16.3pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:16.3pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:
-  white'>BiologicalSysteml_biginit</span></span><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>
-  _T5l</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.3pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSystems_biginit</span></span><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'> _T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:16.3pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>615.89</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:7;height:13.85pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:
-  white'>BiologicalSystemll_biginit</span></span><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>
-  _T5l</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>BiologicalSystemsl_biginit</span></span><span
-  lang=EN-US style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'> _T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:13.85pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>1494.38</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes;height:20.55pt'>
-  <td width=208 style='width:155.85pt;border:solid windowtext 1.0pt;border-top:
-  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
-  padding:0cm 5.4pt 0cm 5.4pt;height:20.55pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D;background:white'>Tank12_big_init_T5l</span></p>
-  </td>
-  <td width=210 style='width:157.55pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:20.55pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>Tank12_big_init_T5s</span></p>
-  </td>
-  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:20.55pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-  style='font-family:"Segoe UI",sans-serif;color:#0D0D0D'>1693.68</span></p>
-  </td>
- </tr>
-</table>
-
-</div>
-
-## 2. Structure and Content
-
-### 2.1 Outer-approximation and Inner-approximation of Reachable Set Computation Interface
-
-### 2.1.1  Outer-approximation of Reachable Set Computation Interface 
-```cpp
-template <typename Number>
-static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOptions<Number> options, Zonotope<Number> R0)
+### Examples Run by BdryReach
+For example, if you want to replicate the examples in Table 3 run by our tool, then you can run **runTable3_Examples.sh** in the directory **./examples/BdryReach**. 
+``` bash
+./runTable3_Examples.sh
 ```
-**Parameters:**
-* **mysys:** differential equation for computing reachable sets.
-* **options:** configuration for outer-approximation of reachable set computation.
-* **R0:** initial set.
 
-
-
-### 2.2 Test Case for Outer-approximation of Reachable Set Computation
-**As an example, we perform the outer-approximation of the reachable set computation for the VanderPol model. The file computes the outer-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval 0 - 6.74 seconds.The specific file location is:**
-```RobotFramework
-/examples/overVanderPol.cpp.
+The output will be saved in the file **Table3_examples_output.txt** in the directory **./examples/BdryReach/Table3_examples** and the figures are stored in the directory **./examples/BdryReach/Table3_examples/figure**. Here is the some part output of **runTable3_Examples.sh**. It will output 
+ the zonotopic inner-approximation (represented by a matrix, the first column denotes the center of the zonotope and the other columns denote its generators) computed by our tool and the computation time for each example.
 ```
-### 2.2.1 Include Files
-```cpp
-#include <overApprox/overApprox.h> // Header File with Interfaces for Computing Reachable Set Outer-approximation.
-#include <plotter/matplotlibcpp.h> // Header file for Matplotlib C++ plotting library
-#include <plotter/plotter.h> // Header file for result plotting
+Table3_examples
+
+ElectroOsc
+
+zonotopic inner-approximation:
+[-6.678246781374445 0.07556403903050581 3.861000979026132e-05 -0.2942877976311855 ;
+2.822964194048449 0.007304956271076335 0 0.07559828881651579 ;]
+time cost: 22.32342
+
+......
 ```
-### 2.2.2 Definition of Differential Equations
-**We define the form of differential equations using the Capd library. For detailed information on the differential equation system in Capd, please refer to the [Capd documentation](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html) on ordinary differential equation systems.**
 
+If you want to recompile the executable files in **./examples/BdryReach**, you should run the following commands in the directory **./BdryReach_code**.
 
-```cpp
-double mu = 1.;
-
-void _f(Node/* t*/, Node in[], int /*dimIn*/, Node out[], int/* dimOut*/, Node params[], int noParams){
-    out[0] = in[1];
-    out[1] = mu * (1-in[0]*in[0])*in[1] - in[0]/*+ in[2]*/;
-}
-
-// Input dimension of the differential equation
-int dimIn = 3; // The input dimension of the differential equation. Since the default input includes control u, the input dimension is one greater than the output dimension.
-
-// Output dimension of the differential equation
-int dimOut = 2; // The output dimension of the differential equation.
-
-// Parameter settings for the differential equation. Since this differential equation has no parameters, it is set to 0.
-int noParam = 0;
-
-// Maximum order for Taylor expansion of the differential equation
-int MaxDerivativeOrder = 3; // The maximum order to which the differential equation is expanded using Taylor series.
-
-// Creating IMap for interval computations
-IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for interval Computations
-
-
+``` bash
+mkdir build
+cd build
+cmake ..
+make
 ```
-### 2.2.3 Parameter Configuration for Computing Reachable Sets
-**Here, we adopt the same parameter definitions as the MATLAB Reachable Set Computation Toolbox CORA. The specific meanings of each parameter can be found in CORA's documentation. please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
-```cpp
-    NonlinearSys<double> mysys(f, 2, 0, 2);
-    ReachOptions<double> options;
+All the executable files will be built into the directories **./BdryReach_code/build/Table3_examples**, **./BdryReach_code/build/Table4_examples**, **./BdryReach_code/build/Table5_examples_shortTime**, **./BdryReach_code/build/Table5_examples_longTime**.
 
-    //create R0
-    Vector_t<double> center(2);
-    Vector_t<double> c(2);
-    c << 1.4, 2.4;
-    Matrix_t<double> generators(2,1);
-    Matrix_t<double> G(2,2);
-    G<< 0.17,0,
-                 0,0.06;
-    Zonotope<double> R0_(c,G);
+### Examples Run by CORA
+If you want to replicate the examples in Table 3 run by the compared tool CORA and compute $\gamma_{min}$ of inner-approximations computed by BdryReah and CORA (since CORA cannot compute inner-approximations of examples in Table 4 and examples with long time horizon in Table 5, we only compute $\gamma_{min}$ of results computed by our tool in their corresponing scripts), then you can open and  run the file **runTable3_Examples.m** in the directory **./examples/CORA**. this program will output 
+* the computation time of each example run by CORA;
+* the $\gamma_{min}$ of inner-approximation of each example computed by our tool BdryReach;
+* the $\gamma_{min}$ of inner-approximation of each example computed by CORA.
 
-    center << 1.4, 2.46;
-    generators<< 0.17,
-                 0;
-
-    options.set_R0(R0_);
-
-    options.set_time_step(0.005);
-    options.set_taylor_terms(4);
-    options.set_zonotope_order(50);
-    options.set_intermediate_order(50);
-    options.set_error_order(20);
-    options.set_alg("lin");
-    options.set_tensor_order(3);
-
-    options.set_tFinal(6.74);
-    options.set_tStart(0);
-
-    options.set_usekrylovError(1);
-    options.set_max_error(DBL_MAX*Eigen::MatrixXd::Ones(2,1));
+The output will be saved in the file **Table3_examples_output.txt** in the directory **./examples/CORA/Table3_examples** and the figures are stored in the directory **./examples/CORA/Table3_examples/figure**. Here is the output of **runTable3_Examples.m**. 
 ```
-### 2.2.4 Invoking the Boundary-based Method for Computing Outer-approximations of Reachable Sets
-This step invokes our boundary-based method for computing outer-approximations of reachable sets. Please refer to **Section 2.1.1** for the meanings of various parameters.
-```cpp
-vector<ReachableSet<double>> BdReachset = OverApprox::BdReach(mysys, options, R0_);
+Table3_examples
+
+ExampleElectroOsc
+Computation time: 41.7216 seconds  // the computation time run by CORA
+Precision_BdR: 0.87911      // the precision of inner-approximation computed by our tool BdryReach
+Precision_CORA: 0.57703     // the precision of inner-approximation computed by CORA
+
+ExampleRoessler
+Computation time: 42.5504 seconds
+Precision_BdR: 0.76085
+Precision_CORA: 0.78668
+
+ExampleLotkaVolterra
+Computation time: 288.2062 seconds
+Precision_BdR: 0.6499
+Precision_CORA: 0.34126
+
+ExampleTank6
+Computation time: 254.2386 seconds
+Precision_BdR: 0.81845
+Precision_CORA: 0.63015
+
+ExampleBiologicalSystemI
+Computation time: 126.8434 seconds
+Precision_BdR: 0.9635
+Precision_CORA: 0.89848
+
+ExampleBiologicalSystemII
+Computation time: 254.6293 seconds
+Precision_BdR: 0.93196
+Precision_CORA: 0.87238
+
+ExampleTank12
+Computation time: 2131.1678 seconds
+Precision_BdR: 0.77182
+Precision_CORA: 0.55813
 ```
-### 2.2.5 The Plotting of Results
-For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
-```cpp
-plt::figure_size(1200, 780);
-for(int i = 0; i < BdReachset.size(); i++){
-    Plotter::plotReach(BdReachset[i], 1, 2, "b");
-}
-plt::show();
-```
-### 2.2.6 Results Display
-**We employ both the BdryReach and CORA methods to compute the outer-approximation of the reachable set starting from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval 0 to 6.74 seconds. The blue region represents the results obtained by the BdryReach method, while the red region corresponds to the results from CORA Computations. It is evident that the outer-approximation computed by BdryReach exhibits significantly higher accuracy compared to CORA.**
-<p align="center">
-  <img src=result_picture/2.2.6.png>
-</p>
+
+# Functional badge
+
+Since the $\gamma_{min}$ is computed by simulation method, the reuslts should be correct if the $\gamma_{min}$ is around the corresponing $\gamma_{min}$ recorded in the table ($\pm 0.02$). As for the computation time, it should be correct if it is proportional to the corresponding time recorded in the table.  
+
+# Reusable badge
+
+## License
+This project is licensed under the GNU GPLv3 License - see the [LICENSE](./ReadMe%20file/LICENSE.md) file for details.
+
+## Tool Installation in a New Computer
+**We also provide the instruction on how to deploy our tool in a new computer with Linux OS.**
 
 
-## 3 Getting Started
-
-### 3.1 Tool Installation
-
-
-#### 3.1.1 Eigen3
+###  Eigen3
 
 ```bash
 sudo apt-get install libeigen3-dev
 ```
 
-#### 3.1.2 Python
+###  Python
 
 ```bash
 sudo apt-get install python-dev
 ```
 
-#### 3.1.3 Capd
+###  boost
+
+```bash
+sudo apt-get install libboost-all-dev
+```
+
+###  glpk
+
+```bash
+sudo apt-get install libglpk-dev
+```
+
+###  Capd
 
 ```bash
 sudo apt install libtool
@@ -1113,7 +208,7 @@ sudo make install
 ```
 
 
-### 3.1.4 BdryReach Toolkit Installation and Compilation of Test Cases
+### BdryReach Toolkit Installation and Compilation of Test Cases
 
 ```bash
 cd BdryReach/
@@ -1123,13 +218,14 @@ cmake ..
 make
 ```
 
-## 3.2 Load docker
 
-## 3.3 Simple user Guide 
 
-**In this subsection we will show how to compute an inner-approximation using our tool BdryReach. The main source code is located in ./BdryReach_code/include/underApprox/underApprox.h.**
+## Simple user Guide 
 
-### 3.3.1 Include Files
+In this section we will show how to compute an inner-approximation using our tool BdryReach. The main source code is located in ./BdryReach_code/include/underApprox/underApprox.h. We take the example located in ./BdryReach_code/Table3_examples/
+ElectroOsc.cpp as an instance.
+
+### Include Files
 
 ```cpp
 #include <plotter/matplotlibcpp.h>   // Header for computing reachable set outer-approximation
@@ -1137,7 +233,7 @@ make
 #include <underApprox/underApprox.h>  // Header for includes the interface for computing reachable sets under approximation.
 ```
 
-### 3.3.2 Definition of Differential Equations
+### Definition of Differential Equations
 
 **We use the Capd library to define the form of the differential equations. Refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html). Notably, the computation of our method requires validation of the obtained reachable set inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
 
@@ -1164,7 +260,7 @@ IMap f(_f, dimIn,dimOut,noParam,MaxDerivativeOrder);
 IMap fBack(_fBack, dimIn,dimOut,noParam,MaxDerivativeOrder);
 ```
 
-### 3.3.3 Parameter Configuration for Computing Reachable Sets
+### Parameter Configuration for Computing Reachable Sets
 
 **We adopt parameter definitions similar to the MATLAB Reachability Analysis Toolbox CORA. For detailed meanings, refer to CORA's documentation.**
 ```cpp
@@ -1200,13 +296,13 @@ options.set_usekrylovError(1);
 options.set_max_error(DBL_MAX*Eigen::MatrixXd::Ones(2,1));
 ```
 
-### 3.3.4 Invoking the Boundary-based Method for Computing the Inner-approximations of Reachable Sets
+### Invoking the Boundary-based Method for Computing the Inner-approximations of Reachable Sets
 
 **This step invokes our boundary-based method for computing inner-approximations of reachable sets. Please refer to the interface for the meanings of various parameters.**
 ```cpp
 vector<Zonotope<double>> underR = UnderApprox::underReachClp(mysys, mysysBack, options, R0_, 3, 1, 0.01, 0.005, 0.005, 50,50);
 ```
-### Inner-approximation of Reachable Set Computation Interface 
+#### Inner-approximation of Reachable Set Computation Interface 
 ```cpp
 template <typename Number>
         static vector<Zonotope<Number>> underReachClp(NonlinearSys<Number> mysys, 			
@@ -1225,7 +321,7 @@ template <typename Number>
 * **bound_step:** step size for outer-approximation computation for the boundary of the set at each step in inner-approximation computation.
 * **Zover_order:** limit on the zonotope order for outer-approximation computation for the entire set at each step in inner-approximation computation.
   
-### 3.3.5 The Plotting of Results
+### The Plotting of Results
 
 For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
@@ -1237,10 +333,15 @@ Plotter::plotZonotope(R0_, 1, 2, "k");
 plt::show();
 ```
 
-### 3.3.6 compile and run 
+### Compile and Run 
+
+We use **cmake** to compile the program. 
+
+Firstly, in the file **./BdryReach_code/CMakeLists.txt**, add the code ```add_subdirectory(Table3_examples) ```
+to the last row.
 
 * **./BdryReach_code/CMakeLists.txt** 
-```cpp
+```cmake
 cmake_minimum_required(VERSION 3.14)
 project(reachSolver)
 
@@ -1249,24 +350,19 @@ set(CMAKE_CXX_STANDARD 11)
 find_package(Eigen3 REQUIRED)
 
 add_subdirectory(src)
-# add_subdirectory(Table3_examples)
-# add_subdirectory(Table4_examples)
-# add_subdirectory(Table5_examples_shortTime)
-add_subdirectory(Table5_examples_longTime)
 
-
-add  add_subdirectory(Table5_examples_longTime) to the last row.
+add_subdirectory(Table3_examples)
 
 ```
-
+Next, in the file **./BdryReach_code/Table3_examples/CMakeLists.txt**, set the ```TARGET_NAME``` as the cpp file name ```ElectroOsc```, i.e., the code ```set(TARGET_NAME ElectroOsc)```.  
 * **./BdryReach_code/Table3_examples/CMakeLists.txt** 
-```cpp
+```cmake
 cmake_minimum_required(VERSION 3.14)
 project(reach_solver_test)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(TARGET_NAME ElectroOsc)
+set(TARGET_NAME ElectroOsc) # Set the target name
 #ElectroOsc
 #Roessler
 #LotkaVolterra
@@ -1286,28 +382,32 @@ target_link_libraries(${TARGET_NAME} PUBLIC
         reach_solver)
 ```
 
-* **./BdryReach_code** 
+in the directory **./BdryReach_code**, run the following bash code, 
 ```bash
 mkdir build
 cd build
 cmake ..
 make
 ```
+if the compile successes, you can find an executable file in the directory **/BdryReach_code/build/Table3_examples**, then you can run the executable file **ElectroOsc**.
 
-### 3.3.7 Results Display and comments
+```bash
+cd Table3_examples
+./ElectroOsc
+```
+### Results Display
 
-**zonotopic inner-approximation: the computed inner-approximation**
-```markdown
+The output will show the zonotopic inner-approximation (represented by a matrix, the first column denotes the center of the zonotope and the other columns denote its generators) computed by our tool. Additional, the output will show the computation time of the whole program. 
+```
+zonotopic inner-approximation: //the computed inner-approximation 
 [-6.678246781374445 0.07556403903050581 3.861000979026132e-05 -0.2942877976311855 ;
 2.822964194048449 0.007304956271076335 0 0.07559828881651579 ;]
-time cost: 22.754546
-!
-time cost: 22.901619   %the computation time of the whole computation.
+time cost: 22.754546   
 ```
-* **Figure display**
+The output will also show the images of computed zonotopes at each iteration on $x_1$- $x_2$ plane. 
 <p align="center">
-  <img src=result_picture/3.3.7.jpg>
+  <img src=./ReadMe%20file/BdryReach_ElectorOsc.svg>
 </p>
 
-**The black region represents the initial set , the green region represents the inner-approximation of the reachable set, while, for comparison, the blue region represents the outer-approximation of the reachable set.**
-## 3.4 Replicating Experiments 
+The black region represents the initial set , the green region represents the inner-approximation of the reachable set, while, for comparison, the blue region represents the outer-approximation of the reachable set.
+
