@@ -75,8 +75,8 @@ Here are the runtime of these 4 scripts, which are tested in the environment sta
   
 #  Getting Started
 
-**We provide the Open Virtual Appliance (OVA) image which can quickly use our tool without any additional installation and configuration.**
-##  Load OVA
+We provide the Open Virtual Appliance (OVA) image which can quickly use our tool without any additional installation and configuration. The virtual machine is installed with Ubuntu 20.04.3 LTS, **the username is laode and the password is 123456.**
+#  Load OVA
 Open the ova file **Ubuntu_aeOS.ova** in VMware Workstation (or other virtual machines). The codes and executable files are located in the director **./home**. The source code of BdryReach is located in **./BdryReach_code** and the source code of CORA is located in **./CORA_code**. (Herein we see **./home** as the root directory.)
 ##  Replicating Experiments 
 **The examples files are located in ./examples, which contains all the examples showcased in Table 3-5. It has tow folders, ./examples/BdryReach and ./examples/CORA, which include examples run by BdryReach (our tool) and CORA (compared tool) respectively.**
