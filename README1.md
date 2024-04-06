@@ -181,10 +181,27 @@ sudo apt install cmake
 sudo apt-get install libeigen3-dev
 ```
 
-###  Python
+###  Python2.7
 
 ```bash
-sudo apt-get install python-dev
+sudo apt install python2
+```
+### Numpy
+
+```bash
+sudo apt-get install python-numpy
+```
+### Pip
+
+```bash
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+sudo python2 get-pip.py
+```
+
+### Matplotlib
+
+```
+python2 -m pip install matplotlib
 ```
 
 ###  boost
