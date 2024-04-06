@@ -170,6 +170,10 @@ This project is licensed under the GNU GPLv3 License - see the [LICENSE](./ReadM
 ## Tool Installation in a New Computer
 **We also provide the instruction on how to deploy our tool in a new computer with Linux OS.**
 
+### Cmake
+```bash
+sudo apt install cmake
+```
 
 ###  Eigen3
 
@@ -210,8 +214,9 @@ sudo make install
 
 ### BdryReach Toolkit Installation and Compilation of Test Cases
 
+in the directory **./BdryReach_code/**.
+
 ```bash
-cd BdryReach/
 mkdir build
 cd build
 cmake ..
