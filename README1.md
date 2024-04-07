@@ -217,7 +217,7 @@ sudo apt-get install libglpk-dev
 ```
 
 ###  Capd
-in the directory **./BdryReach_code**.
+in the directory **./**.
 ```bash
 sudo apt install libtool
 autoreconf --install
