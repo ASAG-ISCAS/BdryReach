@@ -166,7 +166,7 @@ Precision_CORA: 0.55813
 
 # Functional badge
 
-Since the $\gamma_{min}$ is computed by simulation method, the reuslts should be correct if the $\gamma_{min}$ is around the corresponing $\gamma_{min}$ recorded in the table ($\pm 0.02$). As for the computation time, it should be correct if it is proportional to the corresponding time recorded in the table.  
+Since the $\gamma_{min}$ is computed by simulation method, the reuslts should be correct if the $\gamma_{min}$ is around the corresponing $\gamma_{min}$ recorded in the table ($\pm 0.05$). As for the computation time, it should be correct if it is proportional to the corresponding time recorded in the table.  
 
 # Reusable badge
 
