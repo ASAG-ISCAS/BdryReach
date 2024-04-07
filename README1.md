@@ -172,7 +172,7 @@ This project is licensed under the GNU GPLv3 License - see the [LICENSE](./ReadM
 
 ### Cmake
 ```bash
-sudo apt install cmake
+sudo apt-get install cmake
 ```
 
 ###  Eigen3
@@ -181,13 +181,20 @@ sudo apt install cmake
 sudo apt-get install libeigen3-dev
 ```
 
-###  Python3.8
-
+### pip
 ```bash
-sudo apt-get install python-dev
+sudo apt-get install pip
 ```
 
-###  Python2.7
+//###  Python3.8
+
+```bash
+//sudo apt-get install python3.8-dev
+sudo apt-get install python-dev
+//sudo apt-get install python3-dev
+```
+
+//###  Python2.7
 
 ```bash
 sudo apt install python2
@@ -197,7 +204,7 @@ sudo apt install python2
 ```bash
 sudo apt-get install python-numpy
 ```
-### Pip
+//### Pip
 
 ```bash
 wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
@@ -207,7 +214,8 @@ sudo python2 get-pip.py
 ### Matplotlib
 
 ```
-python2 -m pip install matplotlib
+//python2 -m pip install matplotlib
+pip install matplotlib
 ```
 
 ###  boost
@@ -221,12 +229,17 @@ sudo apt-get install libboost-all-dev
 ```bash
 sudo apt-get install libglpk-dev
 ```
+### c\c++ compiler (optional)
 
+```bash
+sudo apt install build-essential
+```
 ###  Capd
-Out of the directory **./capd**.
+In the directory **./capd**.
 ```bash
 sudo apt install libtool
 autoreconf --install
+cd ..
 mkdir capd_nogui
 cd capd_nogui
 ../capd/configure --prefix=/usr/local --without-gui --without-mpfr
