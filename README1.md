@@ -8,8 +8,8 @@
 
 ##  Resource requirements
 
- All  experiments herein are run on Ubuntu 20.04.3 LTS in virtual machine 
-with CPU 12th Gen Intel Core i9-12900K × 8  and RAM 15.6 GB. The compared tool CORA is run in Matlab R2020a. Here are the **third-party libraries** required for BdryReach.
+ All  experiments herein are run on Ubuntu 20.04.6 LTS in virtual machine 
+with CPU 12th Gen Intel Core i9-12900K × 16  and RAM 15.6 GB. The compared tool CORA is run in Matlab R2020a. Here are the **third-party libraries** required for BdryReach.
 | Library | Website | Version |
 | --- | --- | --- |
 | git | [https://git-scm.com/](https://git-scm.com/) | 2.25.1 |
