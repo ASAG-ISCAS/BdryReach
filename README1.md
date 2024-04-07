@@ -113,7 +113,7 @@ make
 All the executable files will be built into the directories **./BdryReach_code/build/Table3_examples**, **./BdryReach_code/build/Table4_examples**, **./BdryReach_code/build/Table5_examples_shortTime**, **./BdryReach_code/build/Table5_examples_longTime**.
 
 ### Examples Run by CORA
-If you want to replicate the examples in Table 3 run by the compared tool CORA and compute $\gamma_{min}$ of inner-approximations computed by BdryReah and CORA (since CORA cannot compute inner-approximations of examples in Table 4 and examples with long time horizon in Table 5, we only compute $\gamma_{min}$ of results computed by our tool in their corresponing scripts), then you can open matlab,
+If you want to replicate the examples in Table 3 run by the compared tool CORA and compute $\gamma_{min}$ of inner-approximations computed by BdryReah and CORA (since CORA cannot compute inner-approximations of examples in Table 4 and examples with long time horizon in Table 5, we only compute $\gamma_{min}$ of results computed by our tool in their corresponing scripts), then you can open matlab in the terminal,
 
 ```bash
 /usr/local/Polyspace/R2020a/bin/matlab
