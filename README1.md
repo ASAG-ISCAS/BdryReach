@@ -181,6 +181,12 @@ sudo apt install cmake
 sudo apt-get install libeigen3-dev
 ```
 
+###  Python3.8
+
+```bash
+sudo apt-get install python-dev
+```
+
 ###  Python2.7
 
 ```bash
