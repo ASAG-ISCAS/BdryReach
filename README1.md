@@ -186,29 +186,10 @@ sudo apt-get install libeigen3-dev
 sudo apt-get install pip
 ```
 
-//###  Python3.8
-
-```bash
-//sudo apt-get install python3.8-dev
-sudo apt-get install python-dev
-//sudo apt-get install python3-dev
-```
-
-//###  Python2.7
-
-```bash
-sudo apt install python2
-```
 ### Numpy
 
 ```bash
 sudo apt-get install python-numpy
-```
-//### Pip
-
-```bash
-wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
-sudo python2 get-pip.py
 ```
 
 ### Matplotlib
