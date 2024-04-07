@@ -217,7 +217,7 @@ sudo apt-get install libglpk-dev
 ```
 
 ###  Capd
-in the directory **./**.
+Out of the directory **./capd**.
 ```bash
 sudo apt install libtool
 autoreconf --install
