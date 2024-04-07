@@ -195,7 +195,6 @@ sudo apt-get install python-numpy
 ### Matplotlib
 
 ```
-//python2 -m pip install matplotlib
 pip install matplotlib
 ```
 
