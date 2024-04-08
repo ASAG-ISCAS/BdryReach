@@ -419,6 +419,7 @@ if the compile successes, you can find an executable file in the directory **/Bd
 
 ```bash
 cd Table3_examples
+mkdir figure
 ./ElectroOsc
 ```
 ### Results Display
