@@ -254,14 +254,14 @@ In this section we will show how to compute an inner-approximation using our too
 ### Include Files
 
 ```cpp
-#include <plotter/matplotlibcpp.h>   // Header for computing reachable set outer-approximation
+#include <plotter/matplotlibcpp.h>   // Header for result visualization
 #include <plotter/plotter.h>          // Header for result visualization
-#include <underApprox/underApprox.h>  // Header for includes the interface for computing reachable sets under approximation.
+#include <underApprox/underApprox.h>  // Header for includes the interface for computing inner-approximation.
 ```
 
 ### Definition of Differential Equations
 
-**We use the Capd library to define the form of the differential equations. Refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html). Notably, the computation of our method requires validation of the obtained reachable set inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
+**We use the Capd library to define the form of the differential equations. Refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html). Notably, the computation of our method requires validation of the obtained inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
 
 ```cpp
 double mu = 1.;
