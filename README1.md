@@ -249,8 +249,7 @@ make
 
 ## Simple user Guide 
 
-In this section we will show how to compute an inner-approximation using our tool BdryReach. The main source code is located in ./BdryReach_code/include/underApprox/underApprox.h. We take the example located in ./BdryReach_code/Table3_examples/
-ElectroOsc.cpp as an instance.
+In this section we will show how to compute an inner-approximation using our tool BdryReach. The main source code is located in ./BdryReach_code/include/underApprox/underApprox.h. We take the example located in ./BdryReach_code/Table3_examples/ElectroOsc.cpp as an instance.
 
 ### Include Files
 
