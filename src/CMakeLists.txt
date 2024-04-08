@@ -4,7 +4,7 @@ project(reach_solver VERSION 1.0.0)
 
 
 find_package(Eigen3 REQUIRED)
-find_package(PythonLibs 2.7 REQUIRED QUIET)
+#find_package(PythonLibs 2.7 REQUIRED QUIET)
 
 option(SEPARATE_TEMPLATE "separate template include and implementation" ON)
 
