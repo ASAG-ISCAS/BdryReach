@@ -254,7 +254,7 @@ In this section we will show how to compute an inner-approximation using our too
 ### Include Files
 
 ```cpp
-#include <plotter/matplotlibcpp.h>   // Header for result visualization
+#include <plotter/matplotlibcpp.h>   // Header file for Matplotlib C++ plotting library
 #include <plotter/plotter.h>          // Header for result visualization
 #include <underApprox/underApprox.h>  // Header for includes the interface for computing inner-approximation.
 ```
@@ -288,7 +288,7 @@ IMap fBack(_fBack, dimIn,dimOut,noParam,MaxDerivativeOrder);
 
 ### Parameter Configuration for Computing Reachable Sets
 
-**We adopt parameter definitions similar to the MATLAB Reachability Analysis Toolbox CORA. For detailed meanings, refer to CORA's documentation.**
+**We adopt parameter definitions similar to the MATLAB Reachability Analysis Toolbox CORA. For detailed meanings, refer to the [manual of CORA](result_picture/Cora2021Manual.pdf)..**
 ```cpp
 NonlinearSys<double> mysys(f, 2, 0, 2);
 NonlinearSys<double> mysysBack(fBack, 2, 0, 2);
