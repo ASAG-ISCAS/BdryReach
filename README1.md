@@ -349,7 +349,7 @@ template <typename Number>
   
 ### The Plotting of Results
 
-For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
+For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions, please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
 plt::figure_size(1200, 780);
 for(int i = 1; i < underR.size(); i++){
