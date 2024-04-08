@@ -4,11 +4,13 @@ project(reach_solver_test)
 set(CMAKE_CXX_STANDARD 14)
 
 find_package(Eigen3 REQUIRED)
-find_package(PythonLibs 2.7 REQUIRED QUIET)
+#find_package(PythonLibs 2.7 REQUIRED QUIET)
+
+include_directories(/usr/include/python3.8)
 
 set(LINKING_LIBRARIES
         #prim
-        ${PYTHON_LIBRARIES}
+        python3.8
         /usr/local/lib/libcapd.so
         #        capd
         Eigen3::Eigen
