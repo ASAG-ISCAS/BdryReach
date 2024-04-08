@@ -15,7 +15,7 @@ with CPU 12th Gen Intel Core i9-12900K × 16  and RAM 15.6 GB. The compared tool
 | git | [https://git-scm.com/](https://git-scm.com/) | 2.25.1 |
 | Cmake | [https://cmake.org/](https://cmake.org/) | latest |
 | Eigen | [http://eigen.tuxfamily.org/index.php?title=Main Page](http://eigen.tuxfamily.org/index.php?title=Main%20Page) | 3.34 |
-| Python | [https://www.python.org/](https://www.python.org/) | 2.7.18 |
+| Python | [https://www.python.org/](https://www.python.org/) | 3.8 |
 | Capd | [http://capd.ii.uj.edu.pl/](http://capd.ii.uj.edu.pl/) | latest |
 | boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
 | GLPK | [https://www.gnu.org/software/glpk/](https://www.gnu.org/software/glpk/) | 4.65-2 |
