@@ -23,7 +23,7 @@ To run BdrtReach in a Linux system, it is necessary to install the **cmake** too
 | git | [https://git-scm.com/](https://git-scm.com/) | 2.25.1 |
 | Cmake | [https://cmake.org/](https://cmake.org/) | latest |
 | Eigen | [http://eigen.tuxfamily.org/index.php?title=Main Page](http://eigen.tuxfamily.org/index.php?title=Main%20Page) | 3.34 |
-| Python | [https://www.python.org/](https://www.python.org/) | 2.7.18 |
+| Python | [https://www.python.org/](https://www.python.org/) | 3.8 |
 | Capd | [http://capd.ii.uj.edu.pl/](http://capd.ii.uj.edu.pl/) | latest |
 | boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
 | GLPK | [https://www.gnu.org/software/glpk/](https://www.gnu.org/software/glpk/) | 4.65-2 |
@@ -34,15 +34,39 @@ To run BdrtReach in a Linux system, it is necessary to install the **cmake** too
 ```bash
 sudo apt-get install libeigen3-dev
 ```
-#### 1.2.2 Python
+#### 1.2.2 Pip
 ```bash
-sudo apt-get install python-dev
+sudo apt-get install pip
 ```
-#### 1.2.3 Capd
+#### 1.2.3 Numpy
+
 ```bash
-svn co https://svn.capdnet.ii.uj.edu.pl/capd/
+sudo apt-get install python-numpy
+```
+
+#### 1.2.4 Matplotlib
+
+```
+pip install matplotlib
+```
+
+#### 1.2.5  boost
+
+```bash
+sudo apt-get install libboost-all-dev
+```
+
+#### 1.2.6  glpk
+
+```bash
+sudo apt-get install libglpk-dev
+```
+#### 1.2.7 Capd
+In the directory **./capd**.
+```bash
 sudo apt install libtool
 autoreconf --install
+cd ..
 mkdir capd_nogui
 cd capd_nogui
 ../capd/configure --prefix=/usr/local --without-gui --without-mpfr
