@@ -79,7 +79,7 @@ We provide the Open Virtual Appliance (OVA) image which can quickly use our tool
 #  Load OVA
 Open the ova file **test.ova** in VMware Workstation (or other virtual machines). The codes and executable files are located in the director **./home**. The source code of BdryReach is located in **./BdryReach_code** and the source code of CORA is located in **./CORA_code**. (Herein we see **./home** as the root directory.)
 ##  Replicating Experiments 
-**The examples files are located in ./examples, which contains all the examples showcased in Table 3-5. It has tow folders, ./examples/BdryReach and ./examples/CORA, which include examples run by BdryReach (our tool) and CORA (compared tool) respectively.**
+**The examples files are located in ./examples, which contains all the examples showcased in Table 3-5. It has tow folders, ./examples/BdryReach and ./examples/CORA, which include examples run by BdryReach (our tool) and CORA (the compared tool) respectively.**
 
 ### Examples Run by BdryReach
 For example, if you want to replicate the examples in Table 3 run by our tool, then you can run **runTable3_Examples.sh** in the directory **./examples/BdryReach**. 
