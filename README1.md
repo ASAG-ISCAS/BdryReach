@@ -288,7 +288,7 @@ IMap fBack(_fBack, dimIn,dimOut,noParam,MaxDerivativeOrder);
 
 ### Parameter Configuration for Computing Reachable Sets
 
-**We adopt parameter definitions similar to the MATLAB Reachability Analysis Toolbox CORA. For detailed meanings, refer to the [manual of CORA](result_picture/Cora2021Manual.pdf)..**
+**We adopt parameter definitions similar to the MATLAB Reachability Analysis Toolbox CORA. For detailed meanings, refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
 ```cpp
 NonlinearSys<double> mysys(f, 2, 0, 2);
 NonlinearSys<double> mysysBack(fBack, 2, 0, 2);
