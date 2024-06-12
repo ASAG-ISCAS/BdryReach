@@ -25,12 +25,12 @@ To run BdryReach in a Linux system, it is required to install the **cmake** tool
 | Eigen | [http://eigen.tuxfamily.org/index.php?title=Main Page](http://eigen.tuxfamily.org/index.php?title=Main%20Page) | 3.34 |
 | Python | [https://www.python.org/](https://www.python.org/) | 3.8 |
 | Capd | [http://capd.ii.uj.edu.pl/](http://capd.ii.uj.edu.pl/) | latest |
-| boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
+| Boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
 | GLPK | [https://www.gnu.org/software/glpk/](https://www.gnu.org/software/glpk/) | 4.65-2 |
 
 ### 1.2 Installation for Some Third-Party Libraries
 
-#### 1.2.1 Eigen3
+#### 1.2.1 Eigen
 ```bash
 sudo apt-get install libeigen3-dev
 ```
@@ -50,13 +50,13 @@ sudo apt-get install python-numpy
 pip install matplotlib
 ```
 
-#### 1.2.5  boost
+#### 1.2.5  Boost
 
 ```bash
 sudo apt-get install libboost-all-dev
 ```
 
-#### 1.2.6  glpk
+#### 1.2.6  GLPK
 
 ```bash
 sudo apt-get install libglpk-dev
