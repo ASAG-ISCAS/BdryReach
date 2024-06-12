@@ -155,7 +155,7 @@ IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for
 
 ```
 ### 2.2.3 Parameter Configuration for Computing Reach Sets
-**Here, we adopt the same parameter definitions as the MATLAB Reachable Set Computation Toolbox CORA. The specific meanings of each parameter can be found in CORA's documentation. please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
+**Here, we adopt the same parameter settings as the Continuous Reachability Analyzer CORA. The meanings of each parameter can be found in CORA's documentation. please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
 ```cpp
     NonlinearSys<double> mysys(f, 2, 0, 2);
     ReachOptions<double> options;
@@ -196,7 +196,7 @@ This step invokes our boundary-based method for computing outer-approximations o
 vector<ReachableSet<double>> BdReachset = OverApprox::BdReach(mysys, options, R0_);
 ```
 ### 2.2.5 The Plotting Results
-For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
+For plotting the results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
 plt::figure_size(1200, 780);
 for(int i = 0; i < BdReachset.size(); i++){
@@ -210,7 +210,7 @@ plt::show();
   <img src=result_picture/2.2.6.png>
 </p>
 
-## 2.3 Test Case for Inner-approximation of Reachable Set Computation
+## 2.3 Test Case for Inner-approximating Reach Sets
 **We also take the inner-approximation of the reachable set computation for the VanderPol model as an example. The file computes the inner-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval 0 to 0.8s. The specific file location is /examples/underVanderPol.cpp.**
 ### 2.3.1 Include Files
 
@@ -219,7 +219,7 @@ plt::show();
 #include <plotter/plotter.h>          // Header for result visualization
 #include <underApprox/underApprox.h>  // Header for includes the interface for computing reachable sets under approximation.
 ```
-### 2.3.2 Definition of Differential Equations
+### 2.3.2 Defining Differential Equations
 
 **We use the Capd library to define the form of the differential equations. Refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html). Notably, the computation of our method requires validation of the obtained reachable set inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
 
@@ -285,7 +285,7 @@ options.set_max_error(DBL_MAX * Eigen::MatrixXd::Ones(2,1));
 ```cpp
 vector<Zonotope<double>> underR = UnderApprox::underReachClp(mysys, mysysBack, options, R0_, 0.1, 8, 0.01, 0.05, 0.01, 50);
 ```
-### 2.3.5 The Plotting of Results
+### 2.3.5 Results Plotting
 
 For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
