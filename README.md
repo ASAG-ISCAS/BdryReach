@@ -28,7 +28,7 @@ To run BdryReach in a Linux system, it is required to install the **cmake** tool
 | boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
 | GLPK | [https://www.gnu.org/software/glpk/](https://www.gnu.org/software/glpk/) | 4.65-2 |
 
-### 1.2 Installation Commands for Some Third-Party Libraries
+### 1.2 Installation for Some Third-Party Libraries
 
 #### 1.2.1 Eigen3
 ```bash
