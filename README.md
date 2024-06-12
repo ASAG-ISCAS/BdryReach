@@ -13,10 +13,10 @@
 ## Introduction
 Reachability analysis plays an important role in the formal verification of dynamic systems, including the computation of outer- and inner-approximations of the reachable sets. Outer-approximations can detect whether all states of the reachable set are in the given set, while inner-approximations can certify the existence of states of the reachable set which “must” lie in the given set. In the computation of outer- and inner-approximations, the accumulation of computational errors, known as the wrapping effect, becomes pronounced with the propagation of the initial set.  A  common approach mitigating this effect is to partition the initial set into smaller subsets, enabling independent computations on each subset. However, this widely used method often results in an excessively large number of subsets, causing burdensome computation. To overcome this, Xue et al. proposed  <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary reachability methods</strong></a> based on a meticulous examination of the topological structure. Compared to the partition of the entire initial set, set-boundary reachability methods alleviate the computational burden and enhance the tightness of results by focusing on splitting only the boundary of the initial set. This tool implement the set-boundary reachability methods, which allows to compute outer- and inner-approximations represented by zonotopes.
 
-## 1. Tool Installation
-To run BdrtReach in a Linux system, it is necessary to install the **cmake** tool and the various **third-party libraries** required for BdryReach.
+## 1. Installation
+To run BdryReach in a Linux system, it is necessary to install the **cmake** tool and the following third party software libraries.
 
-### 1.1 Required Third-Party Libraries
+### 1.1 Third-Party Libraries
 
 | Library | Website | Version |
 | --- | --- | --- |
