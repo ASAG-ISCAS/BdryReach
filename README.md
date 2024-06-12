@@ -11,12 +11,12 @@
 </div>
 
 ## Introduction
-Reachability analysis plays an important role in the formal verification of dynamic systems, including the computation of outer- and inner-approximations of the reachable sets. Outer-approximations can detect whether all states of the reachable set are in the given set, while inner-approximations can certify the existence of states of the reachable set which “must” lie in the given set. In the computation of outer- and inner-approximations, the accumulation of computational errors, known as the wrapping effect, becomes pronounced with the propagation of the initial set.  A  common approach mitigating this effect is to partition the initial set into smaller subsets, enabling independent computations on each subset. However, this widely used method often results in an excessively large number of subsets, causing burdensome computation. To overcome this, Xue et al. proposed  <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary reachability methods</strong></a> based on a meticulous examination of the topological structure. Compared to the partition of the entire initial set, set-boundary reachability methods alleviate the computational burden and enhance the tightness of results by focusing on splitting only the boundary of the initial set. This tool implement the set-boundary reachability methods, which allows to compute outer- and inner-approximations represented by zonotopes.
+Reachability analysis plays an important role in formal verification of dynamic systems, involving computations of outer- and inner-approximations of reachable sets. Outer-approximations, which are supersets of the exact reach set, are often used to conduct safety verification. The system is safe if the computed outer-approximation has an empty intersection with unsafe states. In contrast, inner-approximations, which are subsets of the exact reach set, can certify the existence of trajectories which touch unsafe states. In the computation of outer- and inner-approximations, the accumulation of computation errors, known as the wrapping effect, becomes pronounced with the propagation of the initial set.  A common approach of mitigating this effect is to partition the entire initial set into smaller subsets, enabling independent computations on each subset. However, this widely used method often results in an excessively large number of subsets, causing burdensome computations. To overcome this, Xue et al. proposed  a <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary propagation based reachability method </strong></a>, which is built upon a meticulous examination of the topological structure. Compared to the approach of partitioning the entire initial set, the set-boundary propagation based reachability method alleviates the computational burden by performing computations only the boundary of the initial set rather than the entire initial set, and enhances the tightness of results. This tool implement the set-boundary reachability methods, which allows to compute outer- and inner-approximations represented by zonotopes.
 
 ## 1. Installation
-To run BdryReach in a Linux system, it is necessary to install the **cmake** tool and the following third party software libraries.
+To run BdryReach in a Linux system, it is required to install the **cmake** tool and the following third party software libraries.
 
-### 1.1 Third-Party Libraries
+### 1.1 Required Third-Party Libraries
 
 | Library | Website | Version |
 | --- | --- | --- |
@@ -84,8 +84,8 @@ make
 ```
 ## 2. Usage
 
-### 2.1 Outer-approximation and Inner-approximation of Reachable Set Computation Interface
-### 2.1.1  Outer-approximation of Reachable Set Computation Interface 
+### 2.1 Interface for Outer- and Inner-approximations 
+### 2.1.1  Interface for Outer-approximating Reach Sets
 ```cpp
 template <typename Number>
 static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOptions<Number> options, Zonotope<Number> R0)
@@ -96,7 +96,7 @@ static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOpt
 * **R0:** initial set.
 
 
-### 2.1.2 Inner-approximation of Reachable Set Computation Interface 
+### 2.1.2 Interface for Inner-approximating Reach Sets  
 ```cpp
 template <typename Number>
         static vector<Zonotope<Number>> underReachClp(NonlinearSys<Number> mysys, 			
@@ -119,7 +119,7 @@ template <typename Number>
 ```RobotFramework
 /examples/overVanderPol.cpp.
 ```
-### 2.2.1 Include Files
+### 2.2.1 Files Inclusion
 ```cpp
 #include <overApprox/overApprox.h> // Header File with Interfaces for Computing Reachable Set Outer-approximation.
 #include <plotter/matplotlibcpp.h> // Header file for Matplotlib C++ plotting library
@@ -154,7 +154,7 @@ IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for
 
 
 ```
-### 2.2.3 Parameter Configuration for Computing Reachable Sets
+### 2.2.3 Parameter Configuration for Computing Reach Sets
 **Here, we adopt the same parameter definitions as the MATLAB Reachable Set Computation Toolbox CORA. The specific meanings of each parameter can be found in CORA's documentation. please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
 ```cpp
     NonlinearSys<double> mysys(f, 2, 0, 2);
@@ -190,12 +190,12 @@ IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for
     options.set_usekrylovError(1);
     options.set_max_error(DBL_MAX*Eigen::MatrixXd::Ones(2,1));
 ```
-### 2.2.4 Invoking the Boundary-based Method for Computing Outer-approximations of Reachable Sets
+### 2.2.4 Invoking the Boundary-based Method for Outer-approximating Reach Sets
 This step invokes our boundary-based method for computing outer-approximations of reachable sets. Please refer to **Section 2.1.1** for the meanings of various parameters.
 ```cpp
 vector<ReachableSet<double>> BdReachset = OverApprox::BdReach(mysys, options, R0_);
 ```
-### 2.2.5 The Plotting of Results
+### 2.2.5 The Plotting Results
 For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
 plt::figure_size(1200, 780);
