@@ -14,7 +14,7 @@
  Reachability analysis, a pivotal component in formal verification of dynamic systems, entails the calculation of outer- and inner-approximations of reach sets. Outer-approximations, being supersets of the true reach set, are instrumental in safety verification, as a system is deemed safe if the computed outer-approximation excludes unsafe states. Conversely, inner-approximations, subsets of the true reach set, confirm the existence of trajectories that intersect with unsafe states. The propagation of the initial set often exacerbates the wrapping effect, or computation error accumulation. To address this, Xue et al. introduced a novel <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary propagation based reachability method</strong></a>, leveraging a deep understanding of the topological structure. This approach contrasts with the common practice of partitioning the initial set, as it reduces computational burden by focusing on the boundary of the initial set rather than its entirety. This tool implements the set-boundary reachability method, in which the computed outer- and inner-approximations are represented by zonotopes.
 
 ## 1. Installation
-To run BdryReach in a Linux system, it is required to install the **cmake** tool and the following third party software libraries.
+To run BdryReach in a Linux system, it is required to install the **cmake** tool and the following third-party libraries.
 
 ### 1.1 Required Third-Party Libraries
 
@@ -28,7 +28,7 @@ To run BdryReach in a Linux system, it is required to install the **cmake** tool
 | Boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
 | GLPK | [https://www.gnu.org/software/glpk/](https://www.gnu.org/software/glpk/) | 4.65-2 |
 
-### 1.2 Installation for Some Third-Party Libraries
+### 1.2 Installation for Dependencies
 
 #### 1.2.1 Eigen
 ```bash
