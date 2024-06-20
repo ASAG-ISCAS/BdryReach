@@ -27,7 +27,9 @@ To run BdryReach in a Linux system, it is required to install the **cmake** tool
 | Capd | [http://capd.ii.uj.edu.pl/](http://capd.ii.uj.edu.pl/) | latest |
 | Boost | [https://www.boost.org/](https://www.boost.org/) | 1.67.0.0 |
 | GLPK | [https://www.gnu.org/software/glpk/](https://www.gnu.org/software/glpk/) | 4.65-2 |
-
+| Pip | [https://pypi.org/project/pip/](https://pypi.org/project/pip/) | latest |
+| Numpy | [https://numpy.org/](https://numpy.org/) | latest |
+| Matplotlib | [https://matplotlib.org/](https://matplotlib.org/) | latest |
 ### 1.2 Installation for Dependencies
 
 #### 1.2.1 Eigen
