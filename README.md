@@ -11,7 +11,7 @@
 </div>
 
 ## Introduction
- Reachability analysis, a pivotal component in formal verification of dynamic systems, entails the calculation of outer- and inner-approximations of reachable sets. Outer-approximations, being supersets of the true reachable set, are instrumental in safety verification, as a system is deemed safe if the computed outer-approximation excludes unsafe states. Conversely, inner-approximations, subsets of the true reachable set, confirm the existence of trajectories that intersect with unsafe states. The propagation of the initial set often exacerbates the wrapping effect, or computation error accumulation. To address this, Xue et al. introduced a novel <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary propagation based reachability method</strong></a>, leveraging a deep understanding of the topological structure. This approach contrasts with the common practice of partitioning the initial set, as it reduces computational burden by focusing on the boundary of the initial set rather than its entirety. This tool implements the set-boundary reachability method, in which the computed outer- and inner-approximations are represented by zonotopes.
+ Reachability analysis, a pivotal component in formal verification of dynamic systems, entails the computation of outer- and inner-approximations of reachable sets. Outer-approximations, supersets of the exact reachable sets, are instrumental in safety verification, as a system is deemed safe if the computed outer-approximation excludes unsafe states. Conversely, inner-approximations, subsets of the exact reachable sets, confirm the existence of trajectories that intersect with unsafe states. The propagation of the initial set often introduces computation error accumulation, a.k.a. wrapping effect, which greatly affects the computation accuracy of the outer-/inner- approximations. To address this, Xue et al. introduced a novel <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary propagation based reachability method</strong></a>, leveraging a deep investigation on the topological structure. This approach surpasses the common practice of partitioning the initial set, as it reduces computational burden by focusing on the boundary of the initial set rather than its entirety. This tool implements the set-boundary reachability method, in which the computed outer- and inner-approximations are represented by zonotopes.
 
 ## 1. Installation
 To run BdryReach in a Linux system, it is required to install the **cmake** tool and the following third-party libraries.
@@ -117,7 +117,7 @@ template <typename Number>
 * **bound_step:** step size for outer-approximation computation for the boundary of the set at each step in inner-approximation computation.
 * **Zover_order:** limit on the zonotope order for outer-approximation computation for the entire set at each step in inner-approximation computation.
 ### 2.2 Test Case for Outer-approximation of Reachable Set Computation
-**As an example, we perform the outer-approximation of the reachable set computation for the VanderPol model. The file computes the outer-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval 0 - 6.74 seconds.The specific file location is:**
+**As an example, we perform the outer-approximation of the reachable set computation for the VanderPol model. The file computes the outer-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds).The specific file location is:**
 ```RobotFramework
 /examples/overVanderPol.cpp.
 ```
@@ -157,7 +157,7 @@ IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for
 
 ```
 ### 2.2.3 Parameter Configuration for Computing Reachable sets
-**Here, we adopt the same parameter settings as the Continuous Reachability Analyzer CORA. The meanings of each parameter can be found in CORA's documentation. please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
+**Here, we adopt the same parameter settings as the Continuous Reachability Analyzer CORA. The meanings of each parameter can be found in CORA's documentation. Please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
 ```cpp
     NonlinearSys<double> mysys(f, 2, 0, 2);
     ReachOptions<double> options;
@@ -207,13 +207,13 @@ for(int i = 0; i < BdReachset.size(); i++){
 plt::show();
 ```
 ### 2.2.6 Results Display
-**We employ both the BdryReach and CORA methods to compute the outer-approximation of the reachable set starting from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval 0 to 6.74 seconds. The blue region represents the results obtained by the BdryReach method, while the red region corresponds to the results from CORA Computations. It is evident that the outer-approximation computed by BdryReach exhibits significantly higher accuracy compared to CORA.**
+**We employ both BdryReach and CORA to compute the outer-approximation of the reachable set starting from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds). The blue region represents the results obtained by the BdryReach, while the red region corresponds to the results of CORA. It is evident that the outer-approximation computed by BdryReach exhibits significantly higher accuracy compared to CORA.**
 <p align="center">
   <img src=result_picture/2.2.6.png>
 </p>
 
 ## 2.3 Test Case for Inner-approximating Reachable sets
-**We also take the inner-approximation of the reachable set computation for the VanderPol model as an example. The file computes the inner-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval 0 to 0.8s. The specific file location is /examples/underVanderPol.cpp.**
+**We also take the inner-approximation of the reachable set computation for the VanderPol model as an example. The file computes the inner-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval [0, 0.8] (in seconds). The specific file location is /examples/underVanderPol.cpp.**
 ### 2.3.1 Include Files
 
 ```cpp
@@ -223,7 +223,7 @@ plt::show();
 ```
 ### 2.3.2 Defining Differential Equations
 
-**We use the Capd library to define the form of the differential equations. Refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html). Notably, the computation of our method requires validation of the obtained reachable set inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
+**We use the Capd library to define the form of the differential equations (refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html)). Notably, the computation of our tool requires validation of the obtained reachable set inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
 
 ```cpp
 double mu = 1.;
@@ -250,7 +250,7 @@ IMap fBack(_fBack, dimIn, dimOut, noParam, MaxDerivativeOrder);
 ```
 ### 2.3.3 Parameter Configuration for Computing Reachable Sets
 
-**We adopt parameter definitions similar to the MATLAB Reachability Analysis Toolbox CORA. For detailed meanings, refer to CORA's documentation.**
+**We adopt parameter definitions similar to CORA. For detailed meanings, refer to CORA's documentation.**
 ```cpp
 NonlinearSys<double> mysys(f, 2, 0, 2);
 NonlinearSys<double> mysysBack(fBack, 2, 0, 2);
@@ -300,7 +300,7 @@ plt::show();
 ```
 ### 2.3.6 Results Display
 
-**We computed the inner-approximation of the reachable set for the VanderPol model starting from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval 0 to 0.8s. The green region represents the inner-approximation of the reachable set, while, for comparison, the blue region represents the outer-approximation of the reachable set. It is evident that the inner-approximation computed provides tight results.**
+**We computed the inner-approximation of the reachable set for the VanderPol model starting from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval [0, 0.8] (in seconds). The green region represents the inner-approximation of the reachable set, while, for comparison, the blue region represents the outer-approximation of the reachable set. It is evident that the inner-approximation computed provides tight results.**
 <p align="center">
   <img src=result_picture/2.3.6.png>
 </p>
