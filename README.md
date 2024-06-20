@@ -11,7 +11,7 @@
 </div>
 
 ## Introduction
- Reachability analysis, a pivotal component in formal verification of dynamic systems, entails the calculation of outer- and inner-approximations of reach sets. Outer-approximations, being supersets of the true reach set, are instrumental in safety verification, as a system is deemed safe if the computed outer-approximation excludes unsafe states. Conversely, inner-approximations, subsets of the true reach set, confirm the existence of trajectories that intersect with unsafe states. The propagation of the initial set often exacerbates the wrapping effect, or computation error accumulation. To address this, Xue et al. introduced a novel <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary propagation based reachability method</strong></a>, leveraging a deep understanding of the topological structure. This approach contrasts with the common practice of partitioning the initial set, as it reduces computational burden by focusing on the boundary of the initial set rather than its entirety. This tool implements the set-boundary reachability method, in which the computed outer- and inner-approximations are represented by zonotopes.
+ Reachability analysis, a pivotal component in formal verification of dynamic systems, entails the calculation of outer- and inner-approximations of reachable sets. Outer-approximations, being supersets of the true reachable set, are instrumental in safety verification, as a system is deemed safe if the computed outer-approximation excludes unsafe states. Conversely, inner-approximations, subsets of the true reachable set, confirm the existence of trajectories that intersect with unsafe states. The propagation of the initial set often exacerbates the wrapping effect, or computation error accumulation. To address this, Xue et al. introduced a novel <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>set-boundary propagation based reachability method</strong></a>, leveraging a deep understanding of the topological structure. This approach contrasts with the common practice of partitioning the initial set, as it reduces computational burden by focusing on the boundary of the initial set rather than its entirety. This tool implements the set-boundary reachability method, in which the computed outer- and inner-approximations are represented by zonotopes.
 
 ## 1. Installation
 To run BdryReach in a Linux system, it is required to install the **cmake** tool and the following third-party libraries.
@@ -87,7 +87,7 @@ make
 ## 2. Usage
 
 ### 2.1 Interface for Outer- and Inner-approximations 
-### 2.1.1  Interface for Outer-approximating Reach Sets
+### 2.1.1  Interface for Outer-approximating Reachable sets
 ```cpp
 template <typename Number>
 static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOptions<Number> options, Zonotope<Number> R0)
@@ -98,7 +98,7 @@ static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOpt
 * **R0:** initial set.
 
 
-### 2.1.2 Interface for Inner-approximating Reach Sets  
+### 2.1.2 Interface for Inner-approximating Reachable sets  
 ```cpp
 template <typename Number>
         static vector<Zonotope<Number>> underReachClp(NonlinearSys<Number> mysys, 			
@@ -156,7 +156,7 @@ IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for
 
 
 ```
-### 2.2.3 Parameter Configuration for Computing Reach Sets
+### 2.2.3 Parameter Configuration for Computing Reachable sets
 **Here, we adopt the same parameter settings as the Continuous Reachability Analyzer CORA. The meanings of each parameter can be found in CORA's documentation. please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
 ```cpp
     NonlinearSys<double> mysys(f, 2, 0, 2);
@@ -192,7 +192,7 @@ IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for
     options.set_usekrylovError(1);
     options.set_max_error(DBL_MAX*Eigen::MatrixXd::Ones(2,1));
 ```
-### 2.2.4 Invoking the Boundary-based Method for Outer-approximating Reach Sets
+### 2.2.4 Invoking the Boundary-based Method for Outer-approximating Reachable sets
 This step invokes our boundary-based method for computing outer-approximations of reachable sets. Please refer to **Section 2.1.1** for the meanings of various parameters.
 ```cpp
 vector<ReachableSet<double>> BdReachset = OverApprox::BdReach(mysys, options, R0_);
@@ -212,7 +212,7 @@ plt::show();
   <img src=result_picture/2.2.6.png>
 </p>
 
-## 2.3 Test Case for Inner-approximating Reach Sets
+## 2.3 Test Case for Inner-approximating Reachable sets
 **We also take the inner-approximation of the reachable set computation for the VanderPol model as an example. The file computes the inner-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval 0 to 0.8s. The specific file location is /examples/underVanderPol.cpp.**
 ### 2.3.1 Include Files
 
