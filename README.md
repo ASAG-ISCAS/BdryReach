@@ -96,7 +96,7 @@ static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOpt
 * **R0:** initial set.
 
 
-### 2.1.2 Interface for Inner-approximating Reachable sets  
+### 2.1.2 Interface for Computing Inner-approximations
 ```cpp
 template <typename Number>
         static vector<Zonotope<Number>> underReachClp(NonlinearSys<Number> mysys, 			
