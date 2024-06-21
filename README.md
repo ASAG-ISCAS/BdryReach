@@ -190,13 +190,13 @@ IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for
     options.set_usekrylovError(1);
     options.set_max_error(DBL_MAX*Eigen::MatrixXd::Ones(2,1));
 ```
-### 2.2.4 Invoking the Boundary-based Method for Outer-approximating Reachable sets
-This step invokes our boundary-based method for computing outer-approximations of reachable sets. Please refer to **Section 2.1.1** for the meanings of various parameters.
+### 2.2.4 Invocation of the Boundary-based Method for Computing Outer-approximations
+This step invokes our boundary-based method for computing outer-approximations of reachable sets. Please refer to **Section 2.1.1** for the meanings of  parameters.
 ```cpp
 vector<ReachableSet<double>> BdReachset = OverApprox::BdReach(mysys, options, R0_);
 ```
 ### 2.2.5 The Plotting Results
-For plotting the results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
+For plotting the results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions, please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
 plt::figure_size(1200, 780);
 for(int i = 0; i < BdReachset.size(); i++){
@@ -205,7 +205,7 @@ for(int i = 0; i < BdReachset.size(); i++){
 plt::show();
 ```
 ### 2.2.6 Results Display
-**We employ both BdryReach and CORA to compute the outer-approximation of the reachable set starting from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds). The blue region represents the results obtained by the BdryReach, while the red region corresponds to the results of CORA. It is evident that the outer-approximation computed by BdryReach exhibits significantly higher accuracy compared to CORA.**
+**We employ both BdryReach and CORA to compute the outer-approximations of the reachable set starting from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds). The blue region represents the results obtained by BdryReach, while the red region corresponds to the results of CORA. It is evident that the outer-approximations computed by BdryReach exhibit significantly higher accuracy compared to CORA.**
 <p align="center">
   <img src=result_picture/2.2.6.png>
 </p>
@@ -279,7 +279,7 @@ options.set_R0(R0_);
 options.set_usekrylovError(1);
 options.set_max_error(DBL_MAX * Eigen::MatrixXd::Ones(2,1));
 ```
-### 2.3.4 Invoking the Boundary-based Method for Computing the Inner-approximations of Reachable Sets
+### 2.3.4 Invocation of the Boundary-based Method for Computing the Inner-approximations of Reachable Sets
 
 **This step invokes our boundary-based method for computing inner-approximations of reachable sets. Please refer to Section 2.1.1 for the meanings of various parameters.**
 ```cpp
