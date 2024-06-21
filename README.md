@@ -195,7 +195,7 @@ This step invokes our boundary-based method for computing outer-approximations o
 ```cpp
 vector<ReachableSet<double>> BdReachset = OverApprox::BdReach(mysys, options, R0_);
 ```
-### 2.2.5 The Plotting Results
+### 2.2.5 Plotting of Results
 For plotting the results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions, please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
 plt::figure_size(1200, 780);
@@ -204,24 +204,24 @@ for(int i = 0; i < BdReachset.size(); i++){
 }
 plt::show();
 ```
-### 2.2.6 Results Display
+### 2.2.6 Display of Results
 **We employ both BdryReach and CORA to compute the outer-approximations of the reachable set starting from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds). The blue region represents the results obtained by BdryReach, while the red region corresponds to the results of CORA. It is evident that the outer-approximations computed by BdryReach exhibit significantly higher accuracy compared to CORA.**
 <p align="center">
   <img src=result_picture/2.2.6.png>
 </p>
 
-## 2.3 Test Case for Inner-approximating Reachable sets
-**We also take the inner-approximation of the reachable set computation for the VanderPol model as an example. The file computes the inner-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval [0, 0.8] (in seconds). The specific file location is /examples/underVanderPol.cpp.**
-### 2.3.1 Include Files
+## 2.3 Example for Computing Inner-approximations
+**We also take the VanderPol model as the illustration system. The file computes the inner-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) with the time step size 0.1s over the time interval [0, 0.8] (in seconds). The specific file location is /examples/underVanderPol.cpp.**
+### 2.3.1 Header Files
 
 ```cpp
-#include <plotter/matplotlibcpp.h>   // Header for computing reachable set outer-approximation
-#include <plotter/plotter.h>          // Header for result visualization
-#include <underApprox/underApprox.h>  // Header for includes the interface for computing reachable sets under approximation.
+#include <plotter/matplotlibcpp.h> // Header file for Matplotlib C++ plotting library.
+#include <plotter/plotter.h> // Header file for result plotting.
+#include <underApprox/underApprox.h>  // Header file with the interface for computing inner-approximations.
 ```
-### 2.3.2 Defining Differential Equations
+### 2.3.2 Definition of Differential Equations
 
-**We use the Capd library to define the form of the differential equations (refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html)). Notably, the computation of our tool requires validation of the obtained reachable set inner-approximation. Therefore, an additional definition for a time-inverted differential equation is necessary.**
+**We use the Capd library to define the form of the differential equations (refer to the Capd documentation on [differential equation systems](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html)). Notably, the computation of our tool requires validation of the obtained inner-approximation. Therefore, an additional definition for the time-inverted differential equations is necessary.**
 
 ```cpp
 double mu = 1.;
@@ -246,7 +246,7 @@ int MaxDerivativeOrder = 3;
 IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder);
 IMap fBack(_fBack, dimIn, dimOut, noParam, MaxDerivativeOrder);
 ```
-### 2.3.3 Parameter Configuration for Computing Reachable Sets
+### 2.3.3 Parameter Configurations
 
 **We adopt parameter definitions similar to CORA. For detailed meanings, refer to CORA's documentation.**
 ```cpp
@@ -279,15 +279,15 @@ options.set_R0(R0_);
 options.set_usekrylovError(1);
 options.set_max_error(DBL_MAX * Eigen::MatrixXd::Ones(2,1));
 ```
-### 2.3.4 Invocation of the Boundary-based Method for Computing the Inner-approximations of Reachable Sets
+### 2.3.4 Invocation of the Boundary-based Method for Computing the Inner-approximations
 
-**This step invokes our boundary-based method for computing inner-approximations of reachable sets. Please refer to Section 2.1.1 for the meanings of various parameters.**
+**This step invokes our boundary-based method for computing inner-approximations of reachable sets. Please refer to Section 2.1.1 for the meanings of parameters.**
 ```cpp
 vector<Zonotope<double>> underR = UnderApprox::underReachClp(mysys, mysysBack, options, R0_, 0.1, 8, 0.01, 0.05, 0.01, 50);
 ```
-### 2.3.5 Results Plotting
+### 2.3.5 Plotting of Results
 
-For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions,please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
+For plotting the graphical results, we utilize the lightweight plotting library **Matplotlib for C++**." For specific usage instructions, please refer to [Matplotlib for C++ Documentation](https://matplotlib-cpp.readthedocs.io/en/latest/index.html).
 ```cpp
 plt::figure_size(1200, 780);
 for(int i = 1; i < underR.size(); i++){
@@ -296,9 +296,9 @@ for(int i = 1; i < underR.size(); i++){
 Plotter::plotZonotope(R0_, 1, 2, "k");
 plt::show();
 ```
-### 2.3.6 Results Display
+### 2.3.6 Display of Results 
 
-**We computed the inner-approximation of the reachable set for the VanderPol model starting from the initial region ([1.23, 1.57], [2.34, 2.46]) with a step size of 0.1s over the time interval [0, 0.8] (in seconds). The green region represents the inner-approximation of the reachable set, while, for comparison, the blue region represents the outer-approximation of the reachable set. It is evident that the inner-approximation computed provides tight results.**
+**We compute the inner-approximations of the reachable sets for the VanderPol model starting from the initial region ([1.23, 1.57], [2.34, 2.46]) with a time,step size 0.1s over the time interval [0, 0.8] (in seconds). The green region represents the inner-approximations of the reachable sets, while, for comparison, the blue region represents the outer-approximations of the reachable sets. It is evident that the inner-approximation computed provides tight results.**
 <p align="center">
   <img src=result_picture/2.3.6.png>
 </p>
