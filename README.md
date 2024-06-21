@@ -21,7 +21,6 @@ To run BdryReach in a Linux system, it is required to install the **cmake** tool
 | Library | Website | Version |
 | --- | --- | --- |
 | git | [https://git-scm.com/](https://git-scm.com/) | 2.25.1 |
-| Cmake | [https://cmake.org/](https://cmake.org/) | latest |
 | Eigen | [http://eigen.tuxfamily.org/index.php?title=Main Page](http://eigen.tuxfamily.org/index.php?title=Main%20Page) | 3.34 |
 | Python | [https://www.python.org/](https://www.python.org/) | 3.8 |
 | Capd | [http://capd.ii.uj.edu.pl/](http://capd.ii.uj.edu.pl/) | latest |
