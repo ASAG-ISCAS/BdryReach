@@ -104,16 +104,16 @@ template <typename Number>
         overRtime, int steps, double radius, double over_step, double bound_step, int Zover_order)
 ```
 **Parameters:**
-* **mysys:** ordinary differential equation for computing reachable sets.
-* **mysysBack:** time-inverted ordinary differential equation for result verification.
-* **options:** relevant configuration for outer-approximation of reachable set computation in the program.
+* **mysys:** differential equatiions.
+* **mysysBack:** time-inverted differential equations.
+* **options:** configuration for the computation of outer-approximations in the program.
 * **R0:** initial set.
-* **overRtime:** step size for inner-approximation of reachable set computation at each step.
-* **steps:** number of iterations for inner-approximation of reachable set computation.
-* **radius:** maximum allowed length of generator for facets.
-* **over_step:** step size for outer-approximation computation for the entire set at each step in inner-approximation computation.
-* **bound_step:** step size for outer-approximation computation for the boundary of the set at each step in inner-approximation computation.
-* **Zover_order:** limit on the zonotope order for outer-approximation computation for the entire set at each step in inner-approximation computation.
+* **overRtime:** time step size for the comoutation of inner-approximations.
+* **steps:** number of iterations for for the comoutation of inner-approximations.
+* **radius:** maximum allowed length of generators of facets.
+* **over_step:** time step size for computing the outer-approximation of the entire reachable set at each step.
+* **bound_step:** time step size for computing the outer-approximation of the boundary of reachable set at each step
+* **Zover_order:** limit on the zonotope order in the computation of the outer-approximation of the entire reachable set at each step.
 ### 2.2 Test Case for Outer-approximation of Reachable Set Computation
 **As an example, we perform the outer-approximation of the reachable set computation for the VanderPol model. The file computes the outer-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds).The specific file location is:**
 ```RobotFramework
