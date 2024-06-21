@@ -298,14 +298,14 @@ plt::show();
 ```
 ### 2.3.6 Display of Results 
 
-**We compute the inner-approximations of the reachable sets for the VanderPol model starting from the initial region ([1.23, 1.57], [2.34, 2.46]) with a time,step size 0.1s over the time interval [0, 0.8] (in seconds). The green region represents the inner-approximations of the reachable sets, while, for comparison, the blue region represents the outer-approximations of the reachable sets. It is evident that the inner-approximation computed provides tight results.**
+**We compute the inner-approximations of the reachable sets for the VanderPol model starting from the initial region ([1.23, 1.57], [2.34, 2.46]) with a time,step size 0.1s over the time interval [0, 0.8] (in seconds). The green region represents the inner-approximations of the reachable sets, while, for comparison, the blue region represents the outer-approximations of the reachable sets. It is evident that our tool provide tight inner-approximations.**
 <p align="center">
   <img src=result_picture/2.3.6.png>
 </p>
 
 ## 3 Reproducing Results
 
-**All experiments were conducted on a virtual machine system with an Intel® Core™ i7-10750H CPU @ 2.60GHz × 8, and 5.8 GiB of memory, running Ubuntu 20.04.3 LTS. The experimental files are located in the /examples directory. Please note that different runtime environments may introduce some variations in the results. We provide 8 C++ files to replicate all experiments. To run these experiments, simply execute the following CMake statement in the /BdaryReach directory.**
+**All experiments were conducted on a virtual machine system with an Intel® Core™ i7-10750H CPU @ 2.60GHz × 8, and 5.8 GiB of memory, running Ubuntu 20.04.3 LTS. The experimental files are located in the /examples directory. Please note that different runtime environments may introduce some variations in the results. We provide 8 C++ files to repproduce all experiments. To run these experiments, please simply execute the following CMake statements in the /BdaryReach directory.**
 ```bash
 mkdir build
 cd build
