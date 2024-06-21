@@ -84,14 +84,14 @@ make
 ```
 ## 2. Usage
 
-### 2.1 Interface for Outer- and Inner-approximations 
-### 2.1.1  Interface for Outer-approximating Reachable sets
+### 2.1 Interface for Computing Outer- and Inner-approximations 
+### 2.1.1  Interface for Computing Outer-approximations
 ```cpp
 template <typename Number>
 static vector<ReachableSet<Number>> BdReach(NonlinearSys<Number> mysys, ReachOptions<Number> options, Zonotope<Number> R0)
 ```
 **Parameters:**
-* **mysys:** differential equation for computing reachable sets.
+* **mysys:** differential equations.
 * **options:** configuration for outer-approximation of reachable set computation.
 * **R0:** initial set.
 
