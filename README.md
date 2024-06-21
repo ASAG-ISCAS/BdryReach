@@ -73,7 +73,7 @@ cd capd_nogui
 make
 sudo make install
 ```
-### 1.3 BdryReach Toolkit Installation and Compilation of Test Cases
+### 1.3 Download of BdryReach and Compilation of Test Cases
 ```bash
 git clone https://github.com/ASAG-ISCAS/BdryReach.git
 cd BdryReach/
