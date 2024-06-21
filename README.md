@@ -114,19 +114,19 @@ template <typename Number>
 * **over_step:** time step size for computing the outer-approximation of the entire reachable set at each step.
 * **bound_step:** time step size for computing the outer-approximation of the boundary of reachable set at each step
 * **Zover_order:** limit on the zonotope order in the computation of the outer-approximation of the entire reachable set at each step.
-### 2.2 Test Case for Outer-approximation of Reachable Set Computation
-**As an example, we perform the outer-approximation of the reachable set computation for the VanderPol model. The file computes the outer-approximation from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds).The specific file location is:**
+### 2.2 Example for Computing Outer-approximations
+**As an example, we perform the computation of outer-approximations for the VanderPol model. The file computes the outer-approximations from the initial region ([1.23, 1.57], [2.34, 2.46]) over the time interval [0, 6.74] (in seconds).The specific file location is:**
 ```RobotFramework
 /examples/overVanderPol.cpp.
 ```
-### 2.2.1 Files Inclusion
+### 2.2.1 Header Files
 ```cpp
-#include <overApprox/overApprox.h> // Header File with Interfaces for Computing Reachable Set Outer-approximation.
-#include <plotter/matplotlibcpp.h> // Header file for Matplotlib C++ plotting library
-#include <plotter/plotter.h> // Header file for result plotting
+#include <overApprox/overApprox.h> // Header file with interfaces for computing outer-approximations.
+#include <plotter/matplotlibcpp.h> // Header file for Matplotlib C++ plotting library.
+#include <plotter/plotter.h> // Header file for result plotting.
 ```
 ### 2.2.2 Definition of Differential Equations
-**We define the form of differential equations using the Capd library. For detailed information on the differential equation system in Capd, please refer to the [Capd documentation](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html) on ordinary differential equation systems.**
+**We define the form of differential equations using the Capd library. For detailed information on the differential equations in Capd, please refer to the [Capd documentation](https://capd.sourceforge.net/capdDynSys/docs/html/maps.html).**
 
 
 ```cpp
@@ -137,24 +137,24 @@ void _f(Node/* t*/, Node in[], int /*dimIn*/, Node out[], int/* dimOut*/, Node p
     out[1] = mu * (1-in[0]*in[0])*in[1] - in[0]/*+ in[2]*/;
 }
 
-// Input dimension of the differential equation
-int dimIn = 3; // The input dimension of the differential equation. Since the default input includes control u, the input dimension is one greater than the output dimension.
+// Input dimension of the differential equations
+int dimIn = 3; // The input dimension of the differential equations. Since the default input includes control u, the input dimension is one more than the output dimension.
 
-// Output dimension of the differential equation
-int dimOut = 2; // The output dimension of the differential equation.
+// Output dimension of the differential equations
+int dimOut = 2; // The output dimension of the differential equations.
 
-// Parameter settings for the differential equation. Since this differential equation has no parameters, it is set to 0.
+// Parameter settings for the differential equations. Since this differential equations have no parameters, it is set to 0.
 int noParam = 0;
 
-// Maximum order for Taylor expansion of the differential equation
-int MaxDerivativeOrder = 3; // The maximum order to which the differential equation is expanded using Taylor series.
+// Maximum order for Taylor expansion of the differential equations.
+int MaxDerivativeOrder = 3; // The maximum order to which the differential equations is expanded using Taylor series.
 
 // Creating IMap for interval computations
-IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for interval Computations
+IMap f(_f, dimIn, dimOut, noParam, MaxDerivativeOrder); // Constructing IMap for interval Computations.
 
 
 ```
-### 2.2.3 Parameter Configuration for Computing Reachable sets
+### 2.2.3 Parameter Configuration for Computing Outer-approximations
 **Here, we adopt the same parameter settings as the Continuous Reachability Analyzer CORA. The meanings of each parameter can be found in CORA's documentation. Please refer to the [manual of CORA](result_picture/Cora2021Manual.pdf).**
 ```cpp
     NonlinearSys<double> mysys(f, 2, 0, 2);
